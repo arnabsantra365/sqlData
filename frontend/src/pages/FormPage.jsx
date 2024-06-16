@@ -5,7 +5,7 @@ import Form from "../components/Form";
 const FormPage = () => {
     const {id} = useParams();
   return (
-    <div className="text-white container m-auto w-[30vw] ">
+    <div className=" container m-auto w-[30vw] ">
       <Form id={id} />
     </div>
   )
