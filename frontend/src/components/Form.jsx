@@ -1,4 +1,5 @@
 import  { useState } from 'react';
+import axios from 'axios';
 
 const countries = [
   { code: '+1', name: 'USA' },
@@ -46,6 +47,21 @@ const Form = () => {
       localStorage.setItem('phoneNumber',phoneNumber);
       localStorage.setItem('countryCode',countryCode)
       console.log('Form submitted:', { name, countryCode, phoneNumber });
+
+          // Send form data to backend
+    axios.post(`/api/form`, {  name, countryCode, phoneNumber })
+    .then(response => {
+      console.log(response.data);
+      // Clear form fields after successful submission
+      setName('');
+      setCountryCode('');
+      setPhoneNumber('');
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+    });
+
+
       setCountryCode('');
       setName('');
       setPhoneNumber('');
