@@ -38,15 +38,15 @@ app.post('/api/form', (req, res) => {
     // Perform validation checks here
     
     // Insert into MySQL database
-    // const sql = `INSERT INTO phonedata ( name, country_code, phone_number) VALUES ( ?, ?, ?)`;
-    // con.query(sql, [ name, countryCode, phoneNumber], (err, result) => {
-    //   if (err) {
-    //     console.error('Error inserting data into database:', err);
-    //     res.status(500).send('Error inserting data into database');
-    //   } else {
-    //     res.status(200).send('Form data inserted successfully');
-    //   }
-    // });
+    // const sql = `INSERT INTO phonedata ( name, code, phno) VALUES ( ?, ?, ?)`;
+    con.query(sql, [ name, countryCode, phoneNumber], (err, result) => {
+        if (err) {
+          console.error('Error inserting data into database:', err);
+          res.status(500).send('Error inserting data into database');
+        } else {
+          res.status(200).send('Form data inserted successfully');
+        }
+      });
   });
 
 
